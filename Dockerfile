@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER caffe-maint@googlegroups.com
+MAINTAINER mr.li.jinpeng@gmail.com
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -39,6 +39,12 @@ ENV PYCAFFE_ROOT $CAFFE_ROOT/python
 ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libopencv-dev python-opencv
+
+ENV DEEP_OCR_ROOT=/opt/deep_ocr
+RUN git clone https://github.com/JinpengLI/deep_ocr.git $DEEP_OCR_ROOT
 
 WORKDIR /workspace
 
