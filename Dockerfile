@@ -44,7 +44,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libopencv-dev python-opencv
 
 ENV DEEP_OCR_ROOT=/opt/deep_ocr
-RUN git clone https://github.com/JinpengLI/deep_ocr.git $DEEP_OCR_ROOT
+RUN git clone --recursive https://github.com/JinpengLI/deep_ocr.git $DEEP_OCR_ROOT
 
 WORKDIR /workspace
 
