@@ -46,5 +46,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libopencv-dev python-openc
 ENV DEEP_OCR_ROOT=/opt/deep_ocr
 RUN git clone --recursive https://github.com/JinpengLI/deep_ocr.git $DEEP_OCR_ROOT
 
+ENV PATH $DEEP_OCR_ROOT/bin:$PATH
+ENV PYTHONPATH $DEEP_OCR_ROOT/python:$PYTHONPATH
+
+
 WORKDIR /workspace
 
