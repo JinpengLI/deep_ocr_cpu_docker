@@ -51,7 +51,7 @@ ENV PYTHONPATH $DEEP_OCR_ROOT/python:$PYTHONPATH
 
 ## install PIL
 RUN apt-get update && apt-get install -y --no-install-recommends libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
-RUN pip install PIL
+RUN pip install PIL --allow-external PIL --allow-unverified PIL
 RUN sudo ln -s /lib/x86_64-linux-gnu/libz.so.1 /lib/
 RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so.6 /usr/lib/
 RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62 /usr/lib/
