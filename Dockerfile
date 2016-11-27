@@ -59,5 +59,6 @@ RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so.62 /usr/lib/
 RUN apt-get install -y python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 RUN apt-get install -y gfortran
 RUN pip install --upgrade pip
+ENV WORKSPACE=/workspace
 WORKDIR /workspace
 
